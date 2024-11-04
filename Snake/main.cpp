@@ -19,7 +19,7 @@ int fruitsEaten = 0;
 int specialFruitScore = 30; // Điểm cho thức ăn đặc biệt
 bool speedBoostActive = false; // Biến kiểm soát trạng thái tăng tốc
 int speed = 150; // Tốc độ di chuyển mặc định
-<<<<<<< HEAD
+
 // Hàm đổi màu chữ
 void SetColor(int value)
 {
@@ -136,7 +136,7 @@ void Draw()
 
     SetColor(11); // Màu xanh dương nhạt cho chữ
     cout << "Diem: " << score << endl;
-=======
+
 void Logic()
 {
     int prevX = tailX[0];
@@ -228,5 +228,5 @@ void Logic()
         specialFruitActive = false; // Tắt thức ăn đặc biệt sau khi ăn
     }
 
->>>>>>> 75e983be99538ef7b125a13b6558b07a4a59a58f
+
 }
