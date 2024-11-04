@@ -68,5 +68,25 @@ void Logic()
         if (tailX[i] == x && tailY[i] == y)
             gameOver = true;
     }
+    // Kiểm tra ăn trái cây
+    if (x == fruitX && y == fruitY)
+    {
+        score += 10;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
+        nTail++; // Tăng kích thước đuôi
+        fruitsEaten++; // Tăng biến đếm số trái cây đã ăn
+
+        // Kiểm tra ăn đủ 5 trái cây để tạo thức ăn đặc biệt
+        if (fruitsEaten == 5) // Sau khi ăn 5 trái cây
+        {
+            specialFruitX = rand() % width;
+            specialFruitY = rand() % height;
+            specialFruitActive = true;
+            specialFruitTimer = 0; // reset timer
+            specialFruitScore = 30; // Reset điểm cho thức ăn đặc biệt
+            fruitsEaten = 0; // Reset số trái cây đã ăn
+        }
+    }
 
 }
