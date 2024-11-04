@@ -88,5 +88,20 @@ void Logic()
             fruitsEaten = 0; // Reset số trái cây đã ăn
         }
     }
+    // Xử lý bộ đếm thời gian thức ăn đặc biệt
+    if (specialFruitActive)
+    {
+        specialFruitTimer++;
+        if (specialFruitTimer >= specialFruitDuration * 15) // Điều chỉnh timer cho phù hợp với Sleep(150) trong Draw
+        {
+            specialFruitActive = false; // tắt thức ăn đặc biệt sau thời gian
+        }
+        else if (specialFruitTimer % 10 == 0) // Giảm điểm số sau mỗi giây
+        {
+            specialFruitScore -= 5; // Giảm 5 điểm mỗi giây (hoặc giá trị bạn muốn)
+            if (specialFruitScore < 0)
+                specialFruitScore = 0; // Đảm bảo điểm không âm
+        }
+    }
 
 }
