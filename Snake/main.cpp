@@ -3,6 +3,7 @@
 #include <windows.h>
 using namespace std;
 
+// Khai báo biến
 bool gameOver;
 const int width = 40;
 const int height = 15;
