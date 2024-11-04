@@ -137,7 +137,7 @@ void Draw()
 
     SetColor(11); // Màu xanh dương nhạt cho chữ
     cout << "Diem: " << score << endl;
-
+}
 void Input()
 {
     if (_kbhit())
@@ -257,6 +257,7 @@ void Logic()
         score += specialFruitScore; // Điểm cho thức ăn đặc biệt
         specialFruitActive = false; // Tắt thức ăn đặc biệt sau khi ăn
     }
+}
 void DisplayMenu()
 {
     ShowCursor();
@@ -309,7 +310,7 @@ void DisplayMenu()
     }
 }
 
-}
+
 int main()
 {
     DisplayMenu(); // Hiển thị menu chính
