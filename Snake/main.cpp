@@ -21,7 +21,7 @@ void Input()
             break;
         case 'e': // Phím để bật/tắt tăng tốc
             speedBoostActive = !speedBoostActive; // Đảo ngược trạng thái tăng tốc
-            speed = speedBoostActive ? 80 : 1500; // Giảm tốc độ khi bật tăng tốc
+            speed = speedBoostActive ? 80 : 150; // Giảm tốc độ khi bật tăng tốc
             break;
         }
     }
