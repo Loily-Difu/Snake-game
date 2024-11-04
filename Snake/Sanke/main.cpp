@@ -103,5 +103,11 @@ void Logic()
                 specialFruitScore = 0; // Đảm bảo điểm không âm
         }
     }
+        // Kiểm tra va chạm với thức ăn đặc biệt
+    if (specialFruitActive && x == specialFruitX && y == specialFruitY)
+    {
+        score += specialFruitScore; // Điểm cho thức ăn đặc biệt
+        specialFruitActive = false; // Tắt thức ăn đặc biệt sau khi ăn
+    }
 
 }
