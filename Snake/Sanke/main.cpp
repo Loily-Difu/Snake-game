@@ -19,3 +19,11 @@ int fruitsEaten = 0;
 int specialFruitScore = 30; // Điểm cho thức ăn đặc biệt
 bool speedBoostActive = false; // Biến kiểm soát trạng thái tăng tốc
 int speed = 150; // Tốc độ di chuyển mặc định
+void Logic()
+{
+    int prevX = tailX[0];
+    int prevY = tailY[0];
+    int prev2X, prev2Y;
+    tailX[0] = x;
+    tailY[0] = y;
+}
