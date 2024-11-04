@@ -35,7 +35,7 @@ void Logic()
         prevX = prev2X;
         prevY = prev2Y;
     }
-      switch (dir)
+    switch (dir)
     {
     case LEFT:
         x--;
@@ -52,4 +52,21 @@ void Logic()
     default:
         break;
     }
+
+    // Kiểm tra va chạm với tường
+    //if (x >= width || x < 0 || y >= height || y < 0)
+    //gameOver = true;
+    // Kiểm tra nếu rắn đi xuyên tường
+    if (x >= width) x = 0; // Đi ra bên phải sẽ trở về bên trái
+    else if (x < 0) x = width - 1; // Đi ra bên trái sẽ trở về bên phải
+    if (y >= height) y = 0; // Đi ra dưới cùng sẽ trở về trên cùng
+    else if (y < 0) y = height - 1; // Đi ra trên cùng sẽ trở về dưới cùng
+
+    // Kiểm tra va chạm với đuôi rắn
+    for (int i = 1; i < nTail; i++)
+    {
+        if (tailX[i] == x && tailY[i] == y)
+            gameOver = true;
+    }
+
 }
