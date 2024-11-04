@@ -1,5 +1,3 @@
-
-
 void Logic()
 {
     int prevX = tailX[0];
