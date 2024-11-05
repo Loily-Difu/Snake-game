@@ -3,6 +3,7 @@
 #include <windows.h>
 using namespace std;
 
+// Khai báo biến
 bool gameOver;
 const int width = 40;
 const int height = 15;
@@ -136,6 +137,38 @@ void Draw()
 
     SetColor(11); // Màu xanh dương nhạt cho chữ
     cout << "Diem: " << score << endl;
+
+}
+void Input()
+{
+    if (_kbhit())
+    {
+        switch (_getch())
+        {
+        case 'a':
+            if (dir != RIGHT) dir = LEFT; // Không cho di chuyển ngược lại
+            break;
+        case 'd':
+            if (dir != LEFT) dir = RIGHT; // Không cho di chuyển ngược lại
+            break;
+        case 'w':
+            if (dir != DOWN) dir = UP; // Không cho di chuyển ngược lại
+            break;
+        case 's':
+            if (dir != UP) dir = DOWN; // Không cho di chuyển ngược lại
+            break;
+        case 'x':
+            gameOver = true;
+            break;
+        case 'e': // Phím để bật/tắt tăng tốc
+            speedBoostActive = !speedBoostActive; // Đảo ngược trạng thái tăng tốc
+            speed = speedBoostActive ? 80 : 150; // Giảm tốc độ khi bật tăng tốc
+            break;
+        }
+    }
+}
+
+
 void Logic()
 {
     int prevX = tailX[0];
@@ -226,5 +259,64 @@ void Logic()
         score += specialFruitScore; // Điểm cho thức ăn đặc biệt
         specialFruitActive = false; // Tắt thức ăn đặc biệt sau khi ăn
     }
+}
+void DisplayMenu()
+{
+    ShowCursor();
+    system("cls");
+    int choice;
+    SetColor(11); // Màu xanh dương nhạt cho menu
+    cout << "========= RAN SAN MOI =========" << endl;
+    cout << "1. BAT DAU" << endl;
+    cout << "2. HUONG DAN SU DUNG" << endl;
+    cout << "3. THOAT" << endl;
+    cout << "===============================" << endl;
+    cout << "Moi lua chon: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+        HideCursor();
+        Setup();
+        while (!gameOver)
+        {
+            Draw();
+            Input();
+            Logic();
+            Sleep(speed);
+        }
+        break;
+    case 2:
+        system("cls");
+        SetColor(15); // Màu trắng cho hướng dẫn
+        cout << "================= HUONG DAN CHOI =================" << endl;
+        cout << "1. Su dung 'W' de di chuyen len." << endl;
+        cout << "2. Su dung 'S' de di chuyen xuong." << endl;
+        cout << "3. Su dung 'A' de di chuyen qua trai." << endl;
+        cout << "4. Su dung 'D' de di chuyen qua phai." << endl;
+        cout << "5. Su dung 'E' de tang toc." << endl;
+        cout << "6. Thu thap con moi 'o' de lon len va ghi diem." << endl;
+        cout << "7. Dung va duoi cua chinh minh!" << endl;
+        cout << "==================================================" << endl;
+        system("pause");
+        DisplayMenu();
+        break;
+    case 3:
+        exit(0);
+    default:
+        cout << "Lua chon khong hop le, vui long thu lai!" << endl;
+        Sleep(1000);
+        DisplayMenu();
+        break;
+    }
+}
+
+
+int main()
+{
+    DisplayMenu(); // Hiển thị menu chính
+    return 0;
 
 }
+
