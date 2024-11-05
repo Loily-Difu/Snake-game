@@ -137,6 +137,7 @@ void Draw()
 
     SetColor(11); // Màu xanh dương nhạt cho chữ
     cout << "Diem: " << score << endl;
+
 }
 void Input()
 {
@@ -166,6 +167,7 @@ void Input()
         }
     }
 }
+
 
 void Logic()
 {
@@ -315,5 +317,6 @@ int main()
 {
     DisplayMenu(); // Hiển thị menu chính
     return 0;
+
 }
 
