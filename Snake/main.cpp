@@ -305,6 +305,10 @@ void DisplayMenu()
     case 3:
         exit(0);
     default:
+         cout << "Lua chon khong hop le, vui long thu lai!" << endl;
+        Sleep(1000);
+        DisplayMenu();
+        break;
        
     }
 }
